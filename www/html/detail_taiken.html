@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<tmpl_include head.inc.html>
+<script type="text/javascript" src="/js/detail.js"></script>
+</head>
+<body>
+
+<div id="container">
+<!--共通ヘッダー-->
+<tmpl_include header.inc.html>
+		<style>
+		<!--
+
+		-->
+		</style>
+		<div class="" id="content" style="">
+		<div class="left" style="">
+			<div id="share_detail_box">
+			<tmpl_if loop_taiken>
+				<tmpl_loop loop_taiken>
+					<div id="share_detail_title">
+						<h2><tmpl_var タイトル ></h2></div>
+					<div id="share_detail_naiyou"><tmpl_var 内容></div>
+				</tmpl_loop>	
+			<tmpl_else>
+				データなし
+			</tmpl_if>			
+			</div>
+			
+			<!--ポジティブなコメント領域-->
+			<div id="positive_block" >
+				<div id="positive_comment_list" class="comment_subblock" style="display:block;">
+					<dl>
+						<dt id="positive_comments" class="yellow comment_title">ポジティブ</dt>
+						<tmpl_if loop_positive_comment>						
+							<tmpl_loop loop_positive_comment>
+								<dd id="positive_dd<tmpl_var id>" class="comment_line" onClick="CSDetail.displayComment('P','positive_dd<tmpl_var id>')" ><tmpl_var 内容></dd>								
+							</tmpl_loop>
+						<tmpl_else>
+							<span id="positive_comment_encourage" class="black">コメントがまだありません。一番乗りはどうですか？</span>
+						</tmpl_if>
+					</dl>
+					<input type="button" class="btn" name="comment" value="コメントする" onClick="CSCommon.change_panel('positive_comment_list' , 'regist_positive_comment','normal') ; return false;" />
+				</div>
+				<div id="regist_positive_comment" class="comment_subblock" style="display:none;">
+					<form name="regist_form">
+
+								<textarea name="coment" rows="5" col="5"></textarea>
+								<input type="hidden" name="id" value="<tmpl_loop loop_taiken><tmpl_var id></tmpl_loop>" />
+								<input type="button" class="btn" name="button" value="コメントする" onClick="CSDetail.registComment('P'); return false;" />
+								<input type="button" class="btn" name="button_stop" value="やめる" onClick="CSCommon.change_panel('regist_positive_comment','positive_comment_list','fast');" />						
+					</form>
+				</div>
+				<div id="comp_positive_comment" class="comment_subblock" style="display:none;">
+					登録完了しました。
+				</div>				
+				<div id="display_negative_message_comment" class="comment_subblock" style="display:none;">
+					
+				</div>
+				<div id="display_negative_comment" class="comment_subblock" style="display:none;">
+					<a href="#" onClick="return false;" ><span class="comment_close" onClick="CSCommon.change_panel('display_negative_comment','positive_comment_list','slow');">×</span></a>
+					<div id="display_negative_comment_body"></div>
+				</div>
+			</div>
+					
+			<!--ネガティブなコメント領域-->
+			<div id="negative_block"  >
+				<div id="negative_comment_list" class="comment_subblock" style="display:block;"  >
+					<dl>
+						<dt id="negative_comments" class="blue comment_title">ネガティブコメント</dt>
+						<tmpl_if loop_negative_comment>						
+							<tmpl_loop loop_negative_comment>
+								<dd id="negative_dd<tmpl_var id>" class="comment_line" onClick="CSDetail.displayComment('N','negative_dd<tmpl_var id>')" ><tmpl_var 内容></dd>
+							</tmpl_loop>
+						<tmpl_else>
+							<span id="negative_comment_encourage" class="black">コメントがまだありません。一番乗りはどうですか？</span>
+						</tmpl_if>
+					</dl>
+					<input type="button" class="btn"  name="comment" value="コメントする" onClick="CSCommon.change_panel('negative_comment_list' , 'regist_negative_comment','normal') ; return false;" />
+				</div>
+				<div id="regist_negative_comment" class="comment_subblock"  style="display:none;">
+					<form name="regist_form">
+						<textarea name="coment" rows="5" col="5"></textarea>
+						<input type="hidden" name="id" value="<tmpl_loop loop_taiken><tmpl_var id></tmpl_loop>" />
+						<input type="button" class="btn" name="button" value="コメントする" onClick="CSDetail.registComment('N'); return false;" />
+						<input type="button" class="btn" name="button_stop" value="やめる" onClick="CSCommon.change_panel('regist_negative_comment','negative_comment_list','fast');" />						
+					</form>
+				</div>
+				<div id="comp_negative_comment" class="comment_subblock"  style="display:none;">
+					登録完了しました。
+				</div>				
+				<div id="display_negative_message_comment" class="comment_subblock"  style="display:none;"></div>								
+				<div id="display_positive_comment" class="comment_subblock" style="display:none;">
+					<span class="comment_close" onClick="CSCommon.change_panel('display_positive_comment','negative_comment_list','slow');" >×</span>
+					<div id="display_positive_comment_body"></div>
+				</div>				
+			</div>
+
+			</div>
+		<div class="right">
+		<section>
+			<h4 class="yellow">ポジティブ コメント？</h4>
+			<p>この経験に<strong>厳しい</strong>アドバイスをしよう！</p>
+		</section>
+		
+		<section>
+			<h4 class="skyblue">ネガティブ コメント？</h4>
+			<p>この経験に<strong>前向きな</strong>アドバイスをしよう！</p>
+		</section>
+		
+		<section>
+			<h4 class="magenta">コメントを全て見たい！</h4>
+			<p>コメントのタイトルをクリックして見てください。反対側のコメント枠に表示されるでしょう。<br /><strong>元に戻したい</strong>ときは「X」ボタンで元通りになります。</p>
+		</section>		
+		</div>		
+		
+					
+			
+	</div>
+
+
+<!--共通フッター-->
+<tmpl_include footer.inc.html>
+</div>
+</body>
+</html>

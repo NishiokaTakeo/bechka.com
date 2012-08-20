@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<tmpl_include head.inc.html>
+<script type="text/javascript" src="/js/regist.js"></script>
+</head>
+<body>
+<script type="text/javascript" >
+CSRegist.ready();
+</script>
+<div id="container">
+
+	<!--共通ヘッダー-->
+	<tmpl_include header.inc.html>
+
+	<div id="content">
+		<h1>あなたの「失敗した」体験が他の人に手助けするかもしれません。</h1>	
+		<div class="left">	
+			<div id="success_box" class="success_msg" style="opacity:0;display:none;">共有しました！</div>
+			<div id="err_box" class="error_msg" style="opacity:0;display:none;"></div>
+			<form action="./regist.pl">								
+				<div class="share_detail_box">
+					<section id="input" >
+						<div class="share_detail_title">
+							<h2><input type="text" name="タイトル" value="" style="width: 96%;" /></h2></div>
+						<div class="share_detail_naiyou"><textarea name="内容" style="width: 96%;height:200px;" ></textarea></div>
+						<div><input type="text" name="タグ" value=""  style="width: 96%;"/></div>
+					</section>
+					<input type="submit" class="btn" name="プレビュー" value="プレビュー" onClick='window.location.hash="preview" ; return false;' />
+					<input type="submit" class="btn" name="登録" value="共有する" onClick="CSRegist.regist(); return false;"  />					
+				</div>	
+				
+				<div class="share_detail_box">
+					<a name="preview"></a>
+					<section  id="preview" style="margin-top:3em;" >
+						<h2 style="margin-bottom:1em;border-bottom:2px solid #F49AC1" class="magenta" >プレビュー</h2>
+						<div class="share_detail_title">
+							<h2><div id="preview_title" style="white-space:pre;" ></div></div>
+						<div class="share_detail_naiyou"><div id="preview_body" style="white-space:pre;"></div></div>
+					</section>
+					<input type="submit" class="btn" name="登録" value="共有する" onClick="CSRegist.regist(); return false;"  />														
+				</div>										
+
+			</form>					
+		</div>
+		<div class="right">
+			<section>
+				<h4 class="yellow">失敗体験を共有しよう！</h4>
+				<p>あなたの体験により他の人の失敗を防ぐことができます！</p>
+			</section>
+		
+			<section>
+				<h4 class="skyblue">ネガティブ コメント？</h4>
+				<p>この経験に<strong>前向きな</strong>アドバイスをしよう！</p>
+			</section>
+		
+			<section>
+				<h4 class="magenta">コメントを全て見たい！</h4>
+				<p>コメントのタイトルをクリックして見てください。反対側のコメント枠に表示されるでしょう。<br /><strong>元に戻したい</strong>ときは「X」ボタンで元通りになります。</p>
+			</section>		
+		</div>
+	</div>
+	
+	
+		<!--共通フッター-->
+	<tmpl_include footer.inc.html>
+	
+
+
+		<!--#include virtual="/include/footer-banner.html" -->
+</div>
+</body>
+</html>
+
+

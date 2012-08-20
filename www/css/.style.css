@@ -1,0 +1,66 @@
+*	{	margin:0px;
+		padding:0px;
+		list-style-type:none;
+		border:solid 1px #000000;
+}
+body{	width:1000px;
+			margin:10px auto;
+			color:#333333;
+			font-size:12px;
+			font-family:Osaka, "‚l‚r ‚oƒSƒVƒbƒN", "MS PGothic", sans-serif;
+
+			text-align:left;
+			position:relative;
+}
+
+hr {margin:10px 0px; }
+
+input {	padding:5px;
+		width:150px;
+		margin:0 5px 0 0 ;}
+
+p{padding:5px;}
+table{	border-spacing:0px;
+			border-collapse:collapse;
+			margin:0px 10px;
+			}
+
+h2{font-size:14px;
+		font-weight:550;
+		text-decoration:underline;
+		margin:10px 0px;}
+
+td, th {
+	padding:5px 10px;
+	border: 1px #666666 solid;
+}
+
+dt{width:auto;padding:5px ;margin:0 5px 0 0 ;font-weight:bold;border-bottom:double 1px #cccccc;border-right:double 1px #cccccc;width:6em;}
+dd{width:auto;padding:5px; border-bottom:double 1px #cccccc;}
+.test{border:solid 1px #cccccc}
+
+td.img 	{	width:auto;
+				height:50px;
+				padding:0px;}
+
+td img {width:auto;
+			height:50px;}
+
+td.title{width:auto;
+			text-align:left;}
+
+td.price{	width:100px;
+					text-align:right;}
+
+div.clear{
+	clear:both;
+	margin:0 0 10px 0;}
+
+hr.clear-border{
+	/*margin:0 0 5px 0;*/
+	border:none;
+	border-bottom:dashed 1px #DDDDDD;
+	margin:5px 0 0 0;
+	}
+
+

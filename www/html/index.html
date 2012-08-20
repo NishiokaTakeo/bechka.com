@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<tmpl_include head.inc.html>
+</head>
+<body>
+<div id="container">
+	
+	<!--共通ヘッダー-->
+	<tmpl_include header.inc.html>
+	
+	<div class="" id="content" style="">
+		<h1>あなたの「失敗した」体験を共有しよう！</h1>	
+		<div class="left" style="">
+			<div class="content_left" style="">
+				<h2 class="ping">新着</h2>
+				<ul style="border-top: 3px solid #D3D3D3;" >
+					<tmpl_loop 新着一覧>
+						<li class="<tmpl_if '__first__'>first</tmpl_if>" >
+							<a href="/detail_taiken.pl?体験ID=<tmpl_var id>" >
+								<span class="content_topic_title" style=""><tmpl_var タイトル></span></a><br />
+						　<tmpl_var タグ>　＋コメント：<tmpl_var pコメント>件　－コメント：<tmpl_var nコメント>件　
+						</li>
+					</tmpl_loop>
+				</ul>
+			</div>
+			<div class="content_right" style="">
+				<h2 class="brown">アクセスランキング</h2>				
+				<ul style="border-top: 3px solid #D3D3D3;">
+					<tmpl_loop 人気一覧>
+						<li class="<tmpl_if '__first__'>first</tmpl_if>"><a href="/detail_taiken.pl?体験ID=<tmpl_var id>" >
+							<span class="content_topic_title" style=""><tmpl_var タイトル></span></a><br />
+						　<tmpl_var タグ>　＋コメント：<tmpl_var pコメント>件　－コメント：<tmpl_var nコメント>件　　	
+						</li>
+					</tmpl_loop>
+				</ul>
+			</div>
+		</div>
+		<div class="right" style="">
+			<div>		
+				<dl id="tag" >
+					<dt class="yellow" ><h4 class="yellow">人気タグ</h4></dt>
+					<tmpl_loop 人気タグ一覧>
+					 <dd><span style="font-size:<tmpl_var font-size>pt;"><a href="/search.pl?キーワード=<tmpl_var タグ名>"><tmpl_var タグ名></a></span></dd>
+					</tmpl_loop>
+				</dl>
+			</div>
+		</div>
+	</div>
+	
+	<!--共通フッター-->
+	<tmpl_include footer.inc.html>
+	
+
+
+		<!--#include virtual="/include/footer-banner.html" -->
+</div>
+</body>
+</html>
+
+

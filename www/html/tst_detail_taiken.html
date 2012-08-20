@@ -1,0 +1,28 @@
+<div>
+<tmpl_if name="loop_taiken">
+	<tmpl_loop name="loop_taiken">
+		<div><tmpl_var name="タイトル" ></div>
+		<div><tmpl_var name="内容" ></div>
+	</tmpl_loop>	
+<tmpl_else>
+<span>データなし</span>
+</tmpl_if>
+
+<tmpl_if loop_negative_comment>						
+	<tmpl_loop loop_negative_comment>
+		<span><tmpl_var id></span>
+		<span><tmpl_var 内容></span>
+	</tmpl_loop>
+<tmpl_else>
+	<span>コメントがまだありません。一番乗りはどうですか？</span>
+</tmpl_if>
+
+<tmpl_if loop_positive_comment>						
+	<tmpl_loop loop_positive_comment>
+		<span><tmpl_var id></span>
+		<span><tmpl_var 内容></span>
+	</tmpl_loop>
+<tmpl_else>
+	<span>コメントがまだありません。一番乗りはどうですか？</span>
+</tmpl_if>						
+</div>
