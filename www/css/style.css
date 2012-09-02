@@ -251,11 +251,35 @@ padding-left:20px;
 	overflow:hidden;
 	white-space:nowrap;
 }
+
+#social_link_box{
+    border-top: 2px solid #D8DDE1;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+    line-height:0px;
+    width:97%;
+}
+#social_link_box .mixi-like,.fb-like,.twitter-like{
+	display:inline-block;
+	margin-right:0.7em;
+}
+#social_link_box .mixi-like{
+	position:relative;top:2px;
+}
+
+#social_link_box .twitter-like{
+	width:85px;
+	position:relative;top:2px;
+}
+
 #share_detail_naiyou{
 	padding-right: 2em;
   	margin-bottom:2em;
 	margin-top:0.5em;
 }
+
+
+
 #positive_comment_encourage
 ,#negative_comment_encourage{
 	line-height: 3em;

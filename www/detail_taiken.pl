@@ -14,7 +14,7 @@ use Data::Dumper;
 use CStyle::DBAccess ;
 
 our $html = 'detail_taiken.html' ;
-my $タイトル = '失敗体験詳細｜Bechka 失敗した。を共有しよう！' ;
+my $タイトル = "失敗体験詳細｜Bechka 失敗した。を共有しよう！" ;
 my $ヘッダ説明 = 'ここでは、あなたの「失敗した。」を共有することが出来ます。もしかするとあなたの体験が人の人生を変えるかもしれません。' ;
 my $ヘッダキーワード = 'Bechka,失敗,体験,投稿' ;
 

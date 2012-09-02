@@ -322,7 +322,11 @@ sub template_output{
 																	'loop_context_vars' => 1,
 																	'global_vars' => 1 ,
 																	);
-
+	
+	if( $param->{DOMAIN} == undef ){
+		$param->{DOMAIN} = $CStyle::Configration::DOMAIN;
+	}
+	
 	$Template->param( $param ) ;
 	
 	my $out = $Template->output;
