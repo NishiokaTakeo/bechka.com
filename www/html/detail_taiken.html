@@ -22,11 +22,22 @@
 					<div id="share_detail_title">
 						<h2><tmpl_var タイトル ></h2></div>
 					<div id="share_detail_naiyou"><tmpl_var 内容></div>
-				</tmpl_loop>	
+				</tmpl_loop>
 			<tmpl_else>
 				データなし
 			</tmpl_if>			
 			</div>
+			
+			<!--共有ボタン系を配置-->
+			<tmpl_loop loop_taiken>
+				<tmpl_if __first__>
+		            <div id="social_link_box">
+		                <div class="fb-like" data-href="http://<tmpl_var DOMAIN>/detail_taiken.pl?体験ID=<tmpl_var id>" data-send="false" data-layout="button_count" data-width="200" data-show-faces="false"></div>
+		                <div class="twitter-like" ><a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">ツイート</a></div>
+						<div class="mixi-like" data-plugins-type="mixi-favorite" data-service-key="36effb7f23514844d9511baf98bce8c0e9e9e62e" data-size="medium" data-href="" data-show-faces="false" data-show-count="true" data-show-comment="true" data-width=""></div>		                
+		            </div>								
+				</tmpl_if>			
+			</tmpl_loop>
 			
 			<!--ポジティブなコメント領域-->
 			<div id="positive_block" >

@@ -13,6 +13,7 @@ use strict;
 our $USER_PATH      = &get_user_path($ENV{DOCUMENT_ROOT});
 our $DOCUMENT_ROOT  = $USER_PATH. '/www/' ;
 our $LOGS_ROOT      = $USER_PATH. '/logs/' ;
+our $DOMAIN			= $ENV{HTTP_HOST} ;
 our $gv_dbname      = 'bechka' ;
 our $gv_dbhost      = 'localhost' ;
 our $gv_dbuser      = 'bechka' ;
