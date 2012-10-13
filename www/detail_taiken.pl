@@ -14,9 +14,9 @@ use Data::Dumper;
 use CStyle::DBAccess ;
 
 our $html = 'detail_taiken.html' ;
-my $タイトル = "失敗体験詳細｜Bechka 失敗した。を共有しよう！" ;
-my $ヘッダ説明 = 'ここでは、あなたの「失敗した。」を共有することが出来ます。もしかするとあなたの体験が人の人生を変えるかもしれません。' ;
-my $ヘッダキーワード = 'Bechka,失敗,体験,投稿' ;
+my $タイトル = "%s |「失敗した」を共有するBechka" ;
+my $ヘッダ説明 = '%s・・・' ;
+my $ヘッダキーワード = '%s,失敗共有,Bechka' ;
 
 
 my $param = (new CGI)->Vars;
@@ -64,6 +64,22 @@ sub main{
 	  $data->[$i]->{'内容'}= $ n;
 	}
 
+	#タグ名ちょっとこの辺テスト
+	my $複数タグ名 = $DBA->sqlraw('select タグ名 from タグ as t inner join 体験rタグ as r on t.id = r.タグid where r.体験id = ? and  t.削除フラグ= \'f\' and r.削除フラグ = \'f\'  ',[$data->[0]->{'id'}]);
+	my @タグ;
+	if( ref($複数タグ名) eq 'ARRAY' && scalar @$複数タグ名 > 0){
+		for(my $j = 0 ; $j < scalar @$複数タグ名; $j++){
+			push @タグ,$複数タグ名->[$j]->{'タグ名'} ;
+		}
+		#$data2->[$i]->{'タグ'} = join(',',@タグ) ;
+	}
+	
+	#head情報を設定
+	$タイトル = sprintf($タイトル, $data->[0]->{'タイトル'} ) ;
+	$ヘッダ説明 = sprintf($ヘッダ説明 , substr($data->[0]->{'内容'}, 0, 50) );
+	$ヘッダ説明 =~ s/<br \/>//gi;
+	$ヘッダキーワード =sprintf($ヘッダキーワード, join(',',@タグ));
+	
 	$DBA->disconnect;
 
 	$data=CStyle::Common->delete_utf8_flg($data) ;
