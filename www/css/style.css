@@ -220,6 +220,24 @@ footer ul li {
 padding-left:20px;
 }
 
+/*ページ設定*/
+div.pager_box{
+	text-align:center;
+	margin-top:20px;
+	font-size:medium;
+}
+div.pager_box a{
+ padding:4px 5px;
+}
+div.pager_box .this{
+ background-color:#FDF0D5;
+ border:solid 1px #FCE4B3;
+}
+
+div.newlink_box{
+ margin-top:2em;width:100%;
+}
+div.newlink_box input {width:100%;}
 /***************************/
 /**
 詳細画面
