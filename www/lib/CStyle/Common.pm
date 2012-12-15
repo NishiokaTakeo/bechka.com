@@ -193,7 +193,7 @@ sub add_utf8_flg($){
 	my $this = shift;
 	my $val = shift;
 	
-	CStyle::Common::print_log('I',"START") ;
+	#CStyle::Common::print_log('I',"START") ;
 	
 	#CStyle::Common::print_log('I',"REF ",ref($val)) ;
 	
@@ -254,7 +254,7 @@ sub delete_utf8_flg($){
 	my $this = shift;
 	my $val = shift;
 	
-	CStyle::Common::print_log('I',"START") ;
+	#CStyle::Common::print_log('I',"START") ;
 	#CStyle::Common::print_log('I',"REF ",ref($val)) ;
 	if(ref($val) eq ''){
 		utf8::encode($val) if utf8::is_utf8($val) ;
