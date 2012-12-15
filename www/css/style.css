@@ -234,10 +234,11 @@ div.pager_box .this{
  border:solid 1px #FCE4B3;
 }
 
-div.newlink_box{
+div.newlink_box,div.access_rank_box{
  margin-top:2em;width:100%;
 }
-div.newlink_box input {width:100%;}
+div.newlink_box input,div.access_rank_box input {width:100%;}
+
 /***************************/
 /**
 詳細画面
