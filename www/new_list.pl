@@ -1,4 +1,4 @@
-package Search;
+package NewList;
 
 BEGIN{
 eval("use lib qw($ENV{DOCUMENT_ROOT}lib);");
