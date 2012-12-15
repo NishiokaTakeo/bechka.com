@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<tmpl_include head.inc.html>
+</head>
+<body>
+<div id="container">
+	
+	<!--共通ヘッダー-->
+	<tmpl_include header.inc.html>
+	<div class="" id="content" style="">
+	
+	<h2>検索結果</h2>
+	<div class="left" style="">
+		<tmpl_if 検索一覧>
+		<ul style="width:95%;">
+			<tmpl_loop 検索一覧>
+				<li><a href="/detail_taiken.pl?体験ID=<tmpl_var id>" ><tmpl_var タイトル></a></li>
+			　<tmpl_var タグ>　＋コメント：<tmpl_var pコメント>件　－コメント：<tmpl_var nコメント>件
+			</tmpl_loop>
+		</ul>
+
+		<div class="pager_box">
+		  <tmpl_if 戻るページ>
+			<a href="./new_list.pl?page=<tmpl_var 戻るページ>"> << 前へ </a>
+		  </tmpl_if>
+
+		  <tmpl_loop ページ一覧>
+			<a href="./new_list.pl?page=<tmpl_var ページ>" class="<tmpl_var クラス>"><tmpl_var ページ></a>
+		  </tmpl_loop>
+
+		  <tmpl_if 次のページ>
+			<a href="./new_list.pl?page=<tmpl_var 次のページ>"> 次へ >> </a>
+		  </tmpl_if>
+		</div>
+		<tmpl_else>
+			検索結果が見つかりませんでした。
+		</tmpl_if>
+	</div>	
+		<div class="right" style="">
+			<div>		
+				<dl id="tag" >
+					<dt class="yellow" ><h4 class="yellow">人気タグ</h4></dt>
+					<tmpl_loop 人気タグ一覧>
+					 <dd><span style="font-size:<tmpl_var font-size>pt;"><a href="/search.pl?キーワード=<tmpl_var タグ名>"><tmpl_var タグ名></a></span></dd>
+					</tmpl_loop>
+				</dl>
+			</div>
+		</div>
+
+	</div>
+	<!--共通フッター-->
+	<tmpl_include footer.inc.html>
+
+</div>
+</body>
+</html>
+
+
